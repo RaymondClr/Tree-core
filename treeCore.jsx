@@ -3,7 +3,7 @@ var Tree = function () {
 
     var global = $.global;
 
-    var tree = { varsion: 'alpha 0.0.1' };
+    var tree = { version: 'alpha 0.0.1' };
 
     var windowKeeper = [];
 
