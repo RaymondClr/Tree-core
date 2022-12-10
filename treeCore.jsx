@@ -370,13 +370,13 @@ var Tree = function () {
         return hasOwnProperty.call(object, key);
     }
 
-    function initBuildValues(resource, self) {
+    function initBuildValues(resource, parserSelf) {
         var config = assign(clone(mainContainerDefault), baseGetConfig(resource));
         var showWindow = Boolean(config.show);
         var dockable = Boolean(config.dockable);
         var isSingletonWindow = Boolean(config.singleton);
-        var context = assignContext(self.context, dockable, isSingletonWindow);
-        var layoutMode = assignLayoutMode(self.layoutMode, config.layoutMode);
+        var context = assignContext(parserSelf.context, dockable, isSingletonWindow);
+        var layoutMode = assignLayoutMode(parserSelf.layoutMode, config.layoutMode);
         return [isSingletonWindow, resource, context, showWindow, layoutMode];
     }
 
@@ -560,6 +560,7 @@ var Tree = function () {
     }
 
     addGetElementMethods([Window, Panel, Group]);
+    tree.parse = runInContext;
 
-    return { parse: runInContext };
+    return tree;
 }.call(this);
