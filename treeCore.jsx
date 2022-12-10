@@ -3,7 +3,7 @@ var Tree = function () {
 
     var global = $.global;
 
-    var tree = { version: 'alpha 0.0.1' };
+    var tree = { version: 'alpha 0.0.2' };
 
     var windowKeeper = [];
 
@@ -21,19 +21,25 @@ var Tree = function () {
 
     var validContainerType = ['dialog', 'palette', 'window'];
 
+    var mainContainerDefault = { dockable: true, show: true, singleton: false };
+
     var controlParamRef = { button: 3, checkbox: 3, dropdownlist: 3, edittext: 3, iconbutton: 3, image: 3, listbox: 3, progressbar: 4, radiobutton: 3, scrollbar: 5, slider: 5, statictext: 3, treeview: 3 },
         containerParamRef = { group: 2, panel: 3, tab: 3, tabbedpanel: 3 };
 
-    var controlTypeFlags = { button: 'A', checkbox: 'B', dialog: 'C', dropdownlist: 'D', edittext: 'E', group: 'G', iconbutton: 'H', image: 'I', item: 'J', listbox: 'K', node: 'L', palette: 'M', panel: 'N', progressbar: 'O', radiobutton: 'P', scrollbar: 'Q', slider: 'R', statictext: 'S', tab: 'T', tabbedpanel: 'U', treeview: 'V', window: 'W' };
+    var elementTypeFlags = { button: 'A', checkbox: 'B', dialog: 'C', dropdownlist: 'D', edittext: 'E', group: 'G', iconbutton: 'H', image: 'I', item: 'J', listbox: 'K', node: 'L', palette: 'M', panel: 'N', progressbar: 'O', radiobutton: 'P', scrollbar: 'Q', slider: 'R', statictext: 'S', tab: 'T', tabbedpanel: 'U', treeview: 'V', window: 'W' };
 
     var reCombination = /[CGMNTW][ABDEFGHIKNOPQRSUV]|[DK]J|[VL][LJ]|UT/,
-        reIsContainer = /[DGKLNTUV]/,
-        reIsListItemContainer = /[DKLV]/,
-        reIsSelectableElement = /[DKUV]/,
-        reIsNativeContainer = /[GNTU]/,
-        reIsNativeControl = /[ABDEFHIKOPQRSV]/;
+        reContainer = /[DGKLNTUV]/,
+        reListItemContainer = /[DKLV]/,
+        reSelectableElement = /[DKUV]/,
+        reNativeContainer = /[GNTU]/,
+        reNativeControl = /[ABDEFHIKOPQRSV]/;
 
-    var mainContainerDefault = { dockable: true, show: true, singleton: false };
+    var isContainer = createIsElementType(reContainer),
+        isListItemContainer = createIsElementType(reListItemContainer),
+        isNativeContainer = createIsElementType(reNativeContainer),
+        isNativeControl = createIsElementType(reNativeControl),
+        isSelectableElement = createIsElementType(reSelectableElement);
 
     function addContainer(container, value, type, collector) {
         var func = isTypeNode(type) ? addNodeContainer : addGeneralContainer;
@@ -232,6 +238,12 @@ var Tree = function () {
         return false;
     }
 
+    function createIsElementType(regex) {
+        return function (type) {
+            return regex.test(elementTypeFlags[type]);
+        };
+    }
+
     function eachElement(containers, accumulator, breaker, predicate) {
         return some(containers, function (container) {
             var result = [];
@@ -355,7 +367,7 @@ var Tree = function () {
         var targetTypes = filterFindElementInput(arguments);
         var result = [];
 
-        eachElement([this], result, _stubFalse, function (element) {
+        eachElement([this], result, stubFalse, function (element) {
             return contains(targetTypes, element.type);
         });
 
@@ -402,24 +414,8 @@ var Tree = function () {
         return nativeObjectToString.call(value) === '[object Array]';
     }
 
-    function isContainer(type) {
-        return reIsContainer.test(controlTypeFlags[type]);
-    }
-
     function isInvisibleContainer(container) {
         return isNull(container) || !container.visible;
-    }
-
-    function isListItemContainer(type) {
-        return reIsListItemContainer.test(controlTypeFlags[type]);
-    }
-
-    function isNativeContainer(type) {
-        return reIsNativeContainer.test(controlTypeFlags[type]);
-    }
-
-    function isNativeControl(type) {
-        return reIsNativeControl.test(controlTypeFlags[type]);
     }
 
     function isNil(value) {
@@ -442,10 +438,6 @@ var Tree = function () {
         return container instanceof Panel;
     }
 
-    function isSelectableElement(type) {
-        return reIsSelectableElement.test(controlTypeFlags[type]);
-    }
-
     function isTypeNode(type) {
         return type === 'node';
     }
@@ -455,7 +447,7 @@ var Tree = function () {
     }
 
     function isValidCombination(parentType, childType) {
-        var flagCombination = controlTypeFlags[parentType] + controlTypeFlags[childType];
+        var flagCombination = elementTypeFlags[parentType] + elementTypeFlags[childType];
         return reCombination.test(flagCombination);
     }
 
@@ -464,7 +456,7 @@ var Tree = function () {
     }
 
     function isValidElement(type) {
-        return has(controlTypeFlags, type);
+        return has(elementTypeFlags, type);
     }
 
     function isWindow(container) {
@@ -549,6 +541,10 @@ var Tree = function () {
                 return true;
             }
         }
+        return false;
+    }
+
+    function stubFalse() {
         return false;
     }
 

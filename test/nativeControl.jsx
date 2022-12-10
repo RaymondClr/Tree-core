@@ -1,4 +1,4 @@
-﻿//@include "../treeCore.min.jsx"
+﻿//@include "../treeCore.jsx"
 function _arrayEach(array, iteratee) {
     var index = -1;
     var length = array.length;
@@ -72,36 +72,38 @@ function _arrayEach(array, iteratee) {
 //     },
 // });
 
-// var elements = Tree.parse({
-//     config: { show: true },
-//     style: { alignChildren: ['fill', ''] },
-//     param: [, , , { resizeable: true }],
-//     button1: [],
-//     edittext1: [],
-//     button2: [],
-//     edittext2: [],
-//     button3: [],
-//     edittext3: [],
-//     button4: [],
-//     edittext4: [],
-//     button5: [],
-//     edittext5: [],
-//     button6: [],
-//     edittext6: [],
-//     button7: [],
-//     edittext7: [],
-//     button8: [],
-//     edittext8: [],
-//     button9: [],
-//     edittext9: [],
-// });
+alert(Tree.version);
 
-// // _arrayEach(elements.getElementsByType('button'), function (element, index) {
-//     element.text = index;
-//     element.onClick = function () {
-//         alert(this.text);
-//     };
-// });
+var elements = Tree.parse({
+    config: { show: true },
+    style: { alignChildren: ['fill', ''] },
+    param: [, , , { resizeable: true }],
+    button1: [],
+    edittext1: [],
+    button2: [],
+    edittext2: [],
+    button3: [],
+    edittext3: [],
+    button4: [],
+    edittext4: [],
+    button5: [],
+    edittext5: [],
+    button6: [],
+    edittext6: [],
+    button7: [],
+    edittext7: [],
+    button8: [],
+    edittext8: [],
+    button9: [],
+    edittext9: [],
+});
+
+_arrayEach(elements.getElementsByType('button'), function (element, index) {
+    element.text = index;
+    element.onClick = function () {
+        alert(this.text);
+    };
+});
 
 // _arrayEach(elements.getElementsByType('edittext'), function (element, index) {
 //     element.text = index;
