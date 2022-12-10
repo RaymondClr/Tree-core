@@ -152,6 +152,11 @@ var Tree = function () {
         return get(value, 'config');
     }
 
+    function baseGetElementId(element) {
+        var properties = element.properties;
+        return properties && properties.name;
+    }
+
     function baseGetListItemParam(value) {
         return get(value, 'param');
     }
