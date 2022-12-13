@@ -72,38 +72,38 @@ function _arrayEach(array, iteratee) {
 //     },
 // });
 
-alert(Tree.version);
+// alert(Tree.version);
 
-var elements = Tree.parse({
-    config: { show: true },
-    style: { alignChildren: ['fill', ''] },
-    param: [, , , { resizeable: true }],
-    button1: [],
-    edittext1: [],
-    button2: [],
-    edittext2: [],
-    button3: [],
-    edittext3: [],
-    button4: [],
-    edittext4: [],
-    button5: [],
-    edittext5: [],
-    button6: [],
-    edittext6: [],
-    button7: [],
-    edittext7: [],
-    button8: [],
-    edittext8: [],
-    button9: [],
-    edittext9: [],
-});
+// var elements = Tree.parse({
+//     config: { show: true },
+//     style: { alignChildren: ['fill', ''] },
+//     param: [, , , { resizeable: true }],
+//     button1: [],
+//     edittext1: [],
+//     button2: [],
+//     edittext2: [],
+//     button3: [],
+//     edittext3: [],
+//     button4: [],
+//     edittext4: [],
+//     button5: [],
+//     edittext5: [],
+//     button6: [],
+//     edittext6: [],
+//     button7: [],
+//     edittext7: [],
+//     button8: [],
+//     edittext8: [],
+//     button9: [],
+//     edittext9: [],
+// });
 
-_arrayEach(elements.getElementsByType('button'), function (element, index) {
-    element.text = index;
-    element.onClick = function () {
-        alert(this.text);
-    };
-});
+// _arrayEach(elements.getElementsByType('button'), function (element, index) {
+//     element.text = index;
+//     element.onClick = function () {
+//         alert(this.text);
+//     };
+// });
 
 // _arrayEach(elements.getElementsByType('edittext'), function (element, index) {
 //     element.text = index;
@@ -337,91 +337,91 @@ _arrayEach(elements.getElementsByType('button'), function (element, index) {
 //     },
 // });
 
-// var elements = Tree.parse({
-//     param: ['dialog', '', undefined, { resizeable: true }],
-//     style: { margins: 5, spacing: 5, alignChildren: ['center', 'top'] },
-//     button1: [],
-//     panel: {
-//         style: { margins: [5, 5, 0, 5], orientation: 'row', size: [189, 29] },
-//         radiobutton1: [, [0, 0, 50, 15], '应用'],
-//         radiobutton2: [, [0, 0, 50, 15], '参数'],
-//     },
-//     panel1: {
-//         style: { margins: [5, 0, 0, 0] },
-//         statictext: {
-//             param: [, [0, 0, 180, 25], '© 2022 Raymond Yan', 1],
-//             style: { alignment: ['left', 'center'] },
-//         },
-//     },
-//     panel2: {
-//         style: { margins: 5, spacing: 10, alignChildren: ['fill', 'top'] },
-//         group1: {
-//             style: { margins: 0, alignment: 'left' },
-//             radiobutton: [, [0, 0, 170, 15], '帧指示器'],
-//         },
-//         group2: {
-//             style: { margins: 0, spacing: 10, alignChildren: ['fill', ''], orientation: 'column' },
-//             radiobutton: [, [0, 0, 170, 15], '外部数据'],
-//             group1: {
-//                 style: { margins: 0, spacing: 5, alignChildren: ['fill', ''] },
-//                 rectbutton1: [, [0, 0, 145, 26], 'Final Cut Pro XML'],
-//                 rectbutton2: {
-//                     param: [, [0, 0, 25, 26], '?'],
-//                     style: { alignment: ['right', ''] },
-//                 },
-//             },
-//         },
-//         group3: {
-//             style: { margins: 0, spacing: 5, alignChildren: ['fill', ''], orientation: 'column' },
-//             radiobutton: [, , '自定义时间'],
-//             group1: {
-//                 style: { spacing: 5, alignChildren: ['fill', ''] },
-//                 edittext1: [, [0, 0, 40, 26], '0'],
-//                 edittext2: [, [0, 0, 40, 26], '0'],
-//                 edittext3: [, [0, 0, 40, 26], '0'],
-//                 edittext4: [, [0, 0, 40, 26], '0'],
-//             },
-//             group2: {
-//                 style: { spacing: 5, alignChildren: ['fill', ''] },
-//                 edittext1: [, [0, 0, 85, 26], '0:00:00:000'],
-//                 edittext2: [, [0, 0, 85, 26], '00000'],
-//             },
-//         },
-//     },
-//     panel3: {
-//         style: { margins: 5, spacing: 5, alignChildren: ['fill', ''], orientation: 'row' },
-//         rectbutton1: ['fo', [0, 0, 55, 26], '缩短'],
-//         rectbutton2: [, , '匹配'],
-//         rectbutton3: [, , '延长'],
-//     },
-//     treeview: {
-//         param: [, [0, 0, 500, 500]],
-//         node: {
-//             style: { expanded: true },
-//             node: {
-//                 node: {
-//                     style: { expanded: true },
-//                     item1: 1,
-//                     item2: 2,
-//                     item3: 3,
-//                     item4: 4,
-//                     item5: 5,
-//                 },
-//                 item2: 2,
-//                 item3: 3,
-//                 item4: 4,
-//                 node2: {
-//                     item1: 1,
-//                     item2: 2,
-//                     item3: 3,
-//                     item4: 4,
-//                     item5: 5,
-//                 },
-//             },
-//             item2: 2,
-//             item3: 3,
-//             item4: 4,
-//             item5: 5,
-//         },
-//     },
-// });
+var elements = Tree.parse({
+    param: ['dialog', '', undefined, { resizeable: true }],
+    style: { margins: 5, spacing: 5, alignChildren: ['center', 'top'] },
+    button1: [],
+    panel: {
+        style: { margins: [5, 5, 0, 5], orientation: 'row', size: [189, 29] },
+        radiobutton1: [, [0, 0, 50, 15], '应用'],
+        radiobutton2: [, [0, 0, 50, 15], '参数'],
+    },
+    panel1: {
+        style: { margins: [5, 0, 0, 0] },
+        statictext: {
+            param: [, [0, 0, 180, 25], '© 2022 Raymond Yan', 1],
+            style: { alignment: ['left', 'center'] },
+        },
+    },
+    panel2: {
+        style: { margins: 5, spacing: 10, alignChildren: ['fill', 'top'] },
+        group1: {
+            style: { margins: 0, alignment: 'left' },
+            radiobutton: [, [0, 0, 170, 15], '帧指示器'],
+        },
+        group2: {
+            style: { margins: 0, spacing: 10, alignChildren: ['fill', ''], orientation: 'column' },
+            radiobutton: [, [0, 0, 170, 15], '外部数据'],
+            group1: {
+                style: { margins: 0, spacing: 5, alignChildren: ['fill', ''] },
+                rectbutton1: [, [0, 0, 145, 26], 'Final Cut Pro XML'],
+                rectbutton2: {
+                    param: [, [0, 0, 25, 26], '?'],
+                    style: { alignment: ['right', ''] },
+                },
+            },
+        },
+        group3: {
+            style: { margins: 0, spacing: 5, alignChildren: ['fill', ''], orientation: 'column' },
+            radiobutton: [, , '自定义时间'],
+            group1: {
+                style: { spacing: 5, alignChildren: ['fill', ''] },
+                edittext1: [, [0, 0, 40, 26], '0'],
+                edittext2: [, [0, 0, 40, 26], '0'],
+                edittext3: [, [0, 0, 40, 26], '0'],
+                edittext4: [, [0, 0, 40, 26], '0'],
+            },
+            group2: {
+                style: { spacing: 5, alignChildren: ['fill', ''] },
+                edittext1: [, [0, 0, 85, 26], '0:00:00:000'],
+                edittext2: [, [0, 0, 85, 26], '00000'],
+            },
+        },
+    },
+    panel3: {
+        style: { margins: 5, spacing: 5, alignChildren: ['fill', ''], orientation: 'row' },
+        rectbutton1: ['fo', [0, 0, 55, 26], '缩短'],
+        rectbutton2: [, , '匹配'],
+        rectbutton3: [, , '延长'],
+    },
+    treeview: {
+        param: [, [0, 0, 500, 500]],
+        node: {
+            style: { expanded: true },
+            node: {
+                node: {
+                    style: { expanded: true },
+                    item1: 1,
+                    item2: 2,
+                    item3: 3,
+                    item4: 4,
+                    item5: 5,
+                },
+                item2: 2,
+                item3: 3,
+                item4: 4,
+                node2: {
+                    item1: 1,
+                    item2: 2,
+                    item3: 3,
+                    item4: 4,
+                    item5: 5,
+                },
+            },
+            item2: 2,
+            item3: 3,
+            item4: 4,
+            item5: 5,
+        },
+    },
+});

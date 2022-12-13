@@ -3,7 +3,7 @@ var Tree = function () {
 
     var global = $.global;
 
-    var tree = { version: 'alpha 0.0.2' };
+    var tree = { version: 'alpha 0.0.3' };
 
     var windowKeeper = [];
 
@@ -367,7 +367,11 @@ var Tree = function () {
         var targetTypes = filterFindElementInput(arguments);
         var result = [];
 
-        eachElement([this], result, stubFalse, function (element) {
+        function breaker() {
+            return false;
+        }
+
+        eachElement([this], result, breaker, function (element) {
             return contains(targetTypes, element.type);
         });
 
@@ -541,10 +545,6 @@ var Tree = function () {
                 return true;
             }
         }
-        return false;
-    }
-
-    function stubFalse() {
         return false;
     }
 
