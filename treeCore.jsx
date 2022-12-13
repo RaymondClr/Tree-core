@@ -3,7 +3,7 @@ var Tree = function () {
 
     var global = $.global;
 
-    var tree = { version: 'alpha 0.0.3' };
+    var tree = { version: 'alpha 0.0.4' };
 
     var windowKeeper = [];
 
@@ -529,7 +529,7 @@ var Tree = function () {
             var itemIndex = value.itemIndex;
 
             container.selection = isTypeTabbedpanel(container.type)
-                ? value.itemIndex
+                ? itemIndex
                 : map(castArray(itemIndex), function (value) {
                       return container.items[value];
                   });
