@@ -1,4 +1,4 @@
-﻿//@include "../treeCore.jsx"
+﻿//@include "../treeCore.min.jsx"
 
 var elements = Tree.parse({
     button1: ['a1'],

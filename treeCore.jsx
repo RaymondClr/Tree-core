@@ -3,7 +3,7 @@ var Tree = function () {
 
     var global = $.global;
 
-    var tree = { version: 'alpha 0.0.4' };
+    var tree = { version: 'alpha 0.0.5' };
 
     var windowKeeper = [];
 
@@ -344,7 +344,7 @@ var Tree = function () {
     }
 
     function getElementsByName() {
-        targetNames = filterFindElementInput(arguments);
+        var targetNames = filterFindElementInput(arguments);
         var seen = [];
         var result = [];
 
