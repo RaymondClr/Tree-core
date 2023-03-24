@@ -25,5 +25,5 @@ var elements = Tree.parse({
     },
 });
 
-// var myButton1 = elements.getElementsByType('aa');
-// $.writeln(myButton1);
+var myButton1 = elements.getElementsById('G3-1');
+alert(myButton1);
