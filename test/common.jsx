@@ -1,5 +1,4 @@
 ﻿//@include "../treeCore.min.jsx"
-
 var elements = Tree.parse({
     button1: ['a1'],
     group1: {
@@ -25,5 +24,5 @@ var elements = Tree.parse({
     },
 });
 
-var myButton1 = elements.getElementsById('G3-1');
-alert(myButton1);
+var myButton1 = elements.getElementById('c1');
+alert(myButton1.text);

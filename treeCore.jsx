@@ -23,47 +23,10 @@ var Tree = function () {
 
     var mainContainerDefault = { dockable: true, show: true, singleton: false };
 
-    var controlParamRef = {
-            button: 3,
-            checkbox: 3,
-            dropdownlist: 3,
-            edittext: 3,
-            iconbutton: 3,
-            image: 3,
-            listbox: 3,
-            progressbar: 4,
-            radiobutton: 3,
-            scrollbar: 5,
-            slider: 5,
-            statictext: 3,
-            treeview: 3,
-        },
+    var controlParamRef = { button: 3, checkbox: 3, dropdownlist: 3, edittext: 3, iconbutton: 3, image: 3, listbox: 3, progressbar: 4, radiobutton: 3, scrollbar: 5, slider: 5, statictext: 3, treeview: 3 },
         containerParamRef = { group: 2, panel: 3, tab: 3, tabbedpanel: 3 };
 
-    var elementTypeFlags = {
-        button: 'A',
-        checkbox: 'B',
-        dialog: 'C',
-        dropdownlist: 'D',
-        edittext: 'E',
-        group: 'G',
-        iconbutton: 'H',
-        image: 'I',
-        item: 'J',
-        listbox: 'K',
-        node: 'L',
-        palette: 'M',
-        panel: 'N',
-        progressbar: 'O',
-        radiobutton: 'P',
-        scrollbar: 'Q',
-        slider: 'R',
-        statictext: 'S',
-        tab: 'T',
-        tabbedpanel: 'U',
-        treeview: 'V',
-        window: 'W',
-    };
+    var elementTypeFlags = { button: 'A', checkbox: 'B', dialog: 'C', dropdownlist: 'D', edittext: 'E', group: 'G', iconbutton: 'H', image: 'I', item: 'J', listbox: 'K', node: 'L', palette: 'M', panel: 'N', progressbar: 'O', radiobutton: 'P', scrollbar: 'Q', slider: 'R', statictext: 'S', tab: 'T', tabbedpanel: 'U', treeview: 'V', window: 'W' };
 
     var reCombination = /[CGMNTW][ABDEFGHIKNOPQRSUV]|[DK]J|[VL][LJ]|UT/,
         reContainer = /[DGKLNTUV]/,
@@ -108,10 +71,10 @@ var Tree = function () {
     function addGetElementMethods(constructors) {
         forEach(constructors, function (constructor) {
             var prototype = constructor.prototype;
-            prototype.getElementsById = getElementsById;
+            prototype.getElementById = getElementById;
             prototype.getElementsByName = getElementsByName;
             prototype.getElementsByType = getElementsByType;
-            freezeProperty(prototype, 'getElementsById');
+            freezeProperty(prototype, 'getElementById');
             freezeProperty(prototype, 'getElementsByName');
             freezeProperty(prototype, 'getElementsByType');
         });
@@ -361,7 +324,7 @@ var Tree = function () {
         return isArray(value) ? {} : baseGetStyle(value);
     }
 
-    function getElementsById(targetId) {
+    function getElementById(targetId) {
         targetId = String(targetId);
         var result = [];
 
